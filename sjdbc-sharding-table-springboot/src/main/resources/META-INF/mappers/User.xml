@@ -6,16 +6,18 @@
         <result column="id" property="id" jdbcType="INTEGER" />
         <result column="city" property="city" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="createDate" property="createDate"  />
     </resultMap>
     
     <insert id="addUser">
         INSERT INTO user (
-          id, city, name
+          id, city, name, createDate
         )
         VALUES (
         #{id,jdbcType=INTEGER},
         #{city,jdbcType=VARCHAR},
-        #{name,jdbcType=VARCHAR}
+        #{name,jdbcType=VARCHAR},
+        #{createDate}
         )
     </insert>
    
@@ -30,5 +32,9 @@
     <select id="findByName" resultMap="baseResultMap">
         SELECT u.* FROM user u WHERE u.name=#{name,jdbcType=VARCHAR}
     </select>
-    
+
+    <delete id="removeAll" >
+        delete * from user
+    </delete>
+
 </mapper>

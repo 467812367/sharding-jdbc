@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cxytiandi.sharding.po.User;
 import com.cxytiandi.sharding.repository.UserRepository;
+import com.github.pagehelper.PageHelper;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,6 +31,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findByName(String name) {
 		return userRepository.findByName(name);
+	}
+
+	@Override
+	public void removeAll() {
+		userRepository.removeAll();
 	}
 
 }

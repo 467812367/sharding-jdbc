@@ -1,6 +1,7 @@
 package com.cxytiandi.sharding.po;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 分表
@@ -16,6 +17,8 @@ public class User implements Serializable {
 	private String city = "";
 	
 	private String name = "";
+
+	private Date createDate;
 
 	public Long getId() {
 		return id;
@@ -40,6 +43,13 @@ public class User implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public User setCreateDate(Date createDate) {
+		this.createDate = createDate;
+		return this;
+	}
 }
